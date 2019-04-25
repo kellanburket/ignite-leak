@@ -10,9 +10,7 @@ lazy val mySettings = Seq(
 
 lazy val deps = Seq(
 	"org.apache.ignite" % "ignite-core" % "2.7.0" % "provided",
-	"org.apache.ignite" % "ignite-scalar" % "2.7.0",
-	"com.fasterxml.jackson.core" % "jackson-core" % "2.9.6",
-	"com.fasterxml.jackson.core" % "jackson-databind" % "2.9.6"
+	"org.apache.ignite" % "ignite-scalar" % "2.7.0"
 )
 
 lazy val miraLibIgnite = (

@@ -4,6 +4,6 @@ import org.apache.ignite.cache.query.annotations.QueryTextField
 
 import scala.annotation.meta.field
 
-case class DailyEventTheta(
-	@(QueryTextField@field) theta: Array[Byte]
+case class ValueLong(
+	@(QueryTextField@field) theta: Long
 )

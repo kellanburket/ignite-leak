@@ -44,7 +44,7 @@ if $PERSISTENCE_ENABLED; then
 		if [[ -z $E ]]; then
 			break
 		else
-			echo "Returned Status $?"
+			echo "Returned Status $?: $E"
 		fi
 	done
 fi

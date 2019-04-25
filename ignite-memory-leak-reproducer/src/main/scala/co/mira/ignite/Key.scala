@@ -7,7 +7,7 @@ import org.apache.ignite.cache.query.annotations.QuerySqlField
 
 import scala.annotation.meta.field
 
-case class DailyEventThetaKey(
+case class Key(
 	@(QuerySqlField@field)(
 		orderedGroups = Array(
 			new (QuerySqlField.Group@field)(

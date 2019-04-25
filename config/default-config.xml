@@ -47,7 +47,7 @@
         <property name="cacheKeyConfiguration">
             <list>
                 <bean class="org.apache.ignite.cache.CacheKeyConfiguration">
-                    <property name="typeName" value="co.mira.ignite.DailyEventThetaKey"/>
+                    <property name="typeName" value="co.mira.ignite.Key"/>
                     <property name="affinityKeyFieldName" value="parentS2CellId"/>
                 </bean>
             </list>
@@ -55,11 +55,11 @@
         <property name="cacheConfiguration"> 
             <list>
                 <bean class="org.apache.ignite.configuration.CacheConfiguration">
-                    <property name="name" value="DailyEventTheta"/>
+                    <property name="name" value="Value"/>
                     <property name="indexedTypes">
                         <list>
-                            <value>co.mira.ignite.DailyEventThetaKey</value>
-                            <value>co.mira.ignite.DailyEventTheta</value>                            
+                            <value>co.mira.ignite.Key</value>
+                            <value>co.mira.ignite.${VALUE_TABLE}</value>                            
                         </list>
                     </property>
                     <property name="cacheMode" value="PARTITIONED"/>

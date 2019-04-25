@@ -14,9 +14,6 @@ lib:
 docker-build:
 	docker build -t $(DOCKER_HUB_REPO) .
 
-docker-network:
-	- docker network create $(DOCKER_NETWORK)
-
 docker-clean:
 	- docker stop $(DOCKER_APP)
 	- docker rm $(DOCKER_APP)
@@ -25,7 +22,7 @@ docker-push: docker-build
 	docker build -t $(DOCKER_HUB_REPO) .
 	docker push $(DOCKER_HUB_REPO)
 
-docker-run: docker-build docker-network docker-clean
+docker-run: docker-build docker-clean
 	mkdir -p /tmp/ignite/storage
 	mkdir -p /tmp/ignite/wal
 
@@ -40,7 +37,6 @@ docker-run: docker-build docker-network docker-clean
 		-m $(CONTAINER_MEMORY_LIMIT) \
 		--cpus=$(CPUS) \
 		--memory-swappiness 0 \
-		--network $(DOCKER_NETWORK) \
 		--name $(DOCKER_APP) \
 		-d $(DOCKER_HUB_REPO)
 
