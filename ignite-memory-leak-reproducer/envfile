@@ -1,0 +1,10 @@
+TARGET_DIR=target
+APP_BUILD_DIR=build
+SRC_DIR=src/main
+
+APP_BUILD_DIR=target/scala-2.11
+JAVA_APP=mira-lib-co.mira.ignite.ignite
+JAVA_APP_VERSION=0.1
+SCALA_VERSION=2.11
+
+SBT_OPTS=-XX:+CMSClassUnloadingEnabled -Xms4G -Xmx4G -XX:+UseG1GC

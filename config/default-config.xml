@@ -1,0 +1,73 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans
+        http://www.springframework.org/schema/beans/spring-beans.xsd">    
+    <bean id="ignite.cfg" class="org.apache.ignite.configuration.IgniteConfiguration">
+        <property name="workDirectory" value="${WORK_PATH}"/>
+        <property name="clientFailureDetectionTimeout" value="300000"/>
+        <property name="failureDetectionTimeout" value="310000"/>
+        <property name="systemWorkerBlockedTimeout" value="300000"/>
+        <property name="lifecycleBeans">
+            <list>
+                <bean class="co.mira.ignite.LifecycleEvent"/>
+            </list>
+        </property>
+        <property name="dataStorageConfiguration">
+            <bean class="org.apache.ignite.configuration.DataStorageConfiguration">
+                <property name="metricsEnabled" value="true"/>
+                <property name="storagePath" value="${STORAGE_PATH}"/>
+                <property name="walMode" value="${WAL_MODE}"/>
+                <property name="walPath" value="${WAL_PATH}"/>
+                <property name="walArchivePath" value="${WAL_ARCHIVE_PATH}"/>
+                <property name="defaultDataRegionConfiguration">
+                    <bean class="org.apache.ignite.configuration.DataRegionConfiguration">
+                        <property name="persistenceEnabled" value="${PERSISTENCE_ENABLED}"/>
+                        <property name="maxSize" value="${DURABLE_MEMORY}"/>
+                        <property name="metricsEnabled" value="true"/>
+                        <property name="pageEvictionMode" value="RANDOM_LRU"/>
+                    </bean>
+                </property>
+            </bean>
+        </property>
+        <property name="peerClassLoadingEnabled" value="false"/>
+        <property name="discoverySpi">
+            <bean class="org.apache.ignite.spi.discovery.tcp.TcpDiscoverySpi">
+              <property name="ipFinder">
+                <bean class="org.apache.ignite.spi.discovery.tcp.ipfinder.vm.TcpDiscoveryVmIpFinder">
+                  <property name="addresses">
+                    <list>
+                      <value>127.0.0.1</value>
+                    </list>
+                  </property>
+                </bean>
+              </property>
+            </bean>
+        </property>
+        <property name="cacheKeyConfiguration">
+            <list>
+                <bean class="org.apache.ignite.cache.CacheKeyConfiguration">
+                    <property name="typeName" value="co.mira.ignite.DailyEventThetaKey"/>
+                    <property name="affinityKeyFieldName" value="parentS2CellId"/>
+                </bean>
+            </list>
+        </property>
+        <property name="cacheConfiguration"> 
+            <list>
+                <bean class="org.apache.ignite.configuration.CacheConfiguration">
+                    <property name="name" value="DailyEventTheta"/>
+                    <property name="indexedTypes">
+                        <list>
+                            <value>co.mira.ignite.DailyEventThetaKey</value>
+                            <value>co.mira.ignite.DailyEventTheta</value>                            
+                        </list>
+                    </property>
+                    <property name="cacheMode" value="PARTITIONED"/>
+                    <property name="backups" value="0"/>
+                    <property name="sqlSchema" value="PUBLIC"/>
+                    <property name="statisticsEnabled" value="true"/>
+                </bean>
+            </list>
+        </property>
+    </bean>
+</beans>

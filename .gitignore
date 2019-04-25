@@ -1,0 +1,8 @@
+.DS_Store
+libs/*
+ignite-memory-leak-reproducer/.idea
+ignite-memory-leak-reproducer/lib_managed
+ignite-memory-leak-reproducer/project/project
+ignite-memory-leak-reproducer/project/target
+ignite-memory-leak-reproducer/target
+docker.sh
