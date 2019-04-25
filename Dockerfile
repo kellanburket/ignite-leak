@@ -10,7 +10,6 @@ WORKDIR /opt/ignite
 RUN curl https://dist.apache.org/repos/dist/release/ignite/${IGNITE_VERSION}/apache-ignite-${IGNITE_VERSION}-bin.zip -o ignite.zip && unzip ignite.zip && rm ignite.zip
 
 RUN apk update && apk --no-cache add perl bash 
-# ca-certificates wget && wget -q -O /etc/apk/keys/sgerrand.rsa.pub https://alpine-pkgs.sgerrand.com/sgerrand.rsa.pub && wget https://github.com/sgerrand/alpine-pkg-glibc/releases/download/2.28-r0/glibc-2.28-r0.apk && apk add glibc-2.28-r0.apk
 
 ADD libs/mira-lib-ignite-assembly-0.2.0.jar $IGNITE_HOME/libs/mira-lib-ignite-assembly-0.2.0.jar
 
