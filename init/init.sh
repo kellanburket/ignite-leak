@@ -4,7 +4,7 @@ IGNITE_LOG=/var/log/ignite.log
 OPTION_LIBS=ignite-kubernetes,ignite-zookeeper,ignite-aws,$OPTION_LIBS
 export OPTION_LIBS
 
-JVM_OPTS="-XX:NativeMemoryTracking=detail -Xms$JAVA_HEAP_SIZE -Xmx$JAVA_HEAP_SIZE -XX:+AlwaysPreTouch -XX:+UseG1GC -XX:+ScavengeBeforeFullGC -XX:MaxDirectMemorySize=$IGNITE_MAX_DIRECT_MEMORY -Duser.timezone=GMT"
+JVM_OPTS="-XX:NativeMemoryTracking=detail -Xms$JAVA_HEAP_SIZE -Xmx$JAVA_HEAP_SIZE -XX:+AlwaysPreTouch -XX:+UseG1GC -XX:+ScavengeBeforeFullGC -XX:MaxDirectMemorySize=$JAVA_MAX_DIRECT_MEMORY_SIZE -Duser.timezone=GMT -Djdk.nio.maxCachedBufferSize=$JAVA_NIO_MAX_CACHED_BUFFER_SIZE"
 export JVM_OPTS
 
 function parse_config {

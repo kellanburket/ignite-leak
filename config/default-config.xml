@@ -25,7 +25,6 @@
                         <property name="persistenceEnabled" value="${PERSISTENCE_ENABLED}"/>
                         <property name="maxSize" value="${DURABLE_MEMORY}"/>
                         <property name="metricsEnabled" value="true"/>
-                        <property name="pageEvictionMode" value="RANDOM_LRU"/>
                     </bean>
                 </property>
             </bean>
