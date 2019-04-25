@@ -59,7 +59,7 @@
                     <property name="indexedTypes">
                         <list>
                             <value>co.mira.ignite.Key</value>
-                            <value>co.mira.ignite.${VALUE_TABLE}</value>                            
+                            <value>co.mira.ignite.${VALUE_TABLE}</value>                      
                         </list>
                     </property>
                     <property name="cacheMode" value="PARTITIONED"/>
