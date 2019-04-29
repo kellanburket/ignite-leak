@@ -7,3 +7,4 @@ ignite-memory-leak-reproducer/project/target
 ignite-memory-leak-reproducer/target
 docker.sh
 post.txt
+.idea
