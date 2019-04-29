@@ -24,7 +24,7 @@ case class Key(
 			)
 		)
 	) s2CellId: Long,
-	@(QuerySqlField@field) eventHour: Byte,
+	@(QuerySqlField@field) eventHour: Int,
 	@(AffinityKeyMapped@field)
 	@(QuerySqlField@field) parentS2CellId: Long
 )

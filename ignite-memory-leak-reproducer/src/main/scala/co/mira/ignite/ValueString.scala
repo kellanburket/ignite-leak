@@ -4,4 +4,4 @@ import org.apache.ignite.cache.query.annotations.QueryTextField
 
 import scala.annotation.meta.field
 
-case class ValueLong(theta: Long)
+case class ValueString(@(QueryTextField@field) theta: String)

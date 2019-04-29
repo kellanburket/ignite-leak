@@ -10,7 +10,7 @@
         <property name="systemWorkerBlockedTimeout" value="300000"/>
         <property name="lifecycleBeans">
             <list>
-                <bean class="co.mira.ignite.LifecycleEvent"/>
+                <bean class="co.mira.ignite.${LIFECYCLE_EVENT}"/>
             </list>
         </property>
         <property name="dataStorageConfiguration">
@@ -19,7 +19,7 @@
                 <property name="storagePath" value="${STORAGE_PATH}"/>
                 <property name="walMode" value="${WAL_MODE}"/>
                 <property name="walPath" value="${WAL_PATH}"/>
-                <property name="walArchivePath" value="${WAL_ARCHIVE_PATH}"/>
+                <property name="walArchivePath" value="${WAL_PATH}"/>
                 <property name="defaultDataRegionConfiguration">
                     <bean class="org.apache.ignite.configuration.DataRegionConfiguration">
                         <property name="persistenceEnabled" value="${PERSISTENCE_ENABLED}"/>
@@ -46,7 +46,7 @@
         <property name="cacheKeyConfiguration">
             <list>
                 <bean class="org.apache.ignite.cache.CacheKeyConfiguration">
-                    <property name="typeName" value="co.mira.ignite.Key"/>
+                    <property name="typeName" value="co.mira.ignite.${KEY_TABLE}"/>
                     <property name="affinityKeyFieldName" value="parentS2CellId"/>
                 </bean>
             </list>
@@ -57,7 +57,7 @@
                     <property name="name" value="Value"/>
                     <property name="indexedTypes">
                         <list>
-                            <value>co.mira.ignite.Key</value>
+                            <value>co.mira.ignite.${KEY_TABLE}</value>
                             <value>co.mira.ignite.${VALUE_TABLE}</value>                      
                         </list>
                     </property>
