@@ -1,5 +1,5 @@
 DOCKER_NETWORK=main
-DOCKER_HUB_REPO=miraco/ignite:leak-1
+DOCKER_HUB_REPO=miraco/ignite:leak
 DOCKER_APP=ignite.leak
 DEFAULT_DATA_REGION_PERSISTENCE_ENABLED=false
 
